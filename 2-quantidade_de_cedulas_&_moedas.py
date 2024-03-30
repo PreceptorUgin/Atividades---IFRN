@@ -12,6 +12,7 @@ if val < 0 :
     print('Valor inserido invalido')
     sys.exit()
 
+val = round(val, 2)
 #Cedulas
 cedula_100 = int(val // 100)
 val = val % 100
