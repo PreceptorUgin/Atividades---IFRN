@@ -1,5 +1,4 @@
-from datetime import datetime
-from dateutil.relativedelta import relativedelta
+from datetime import datetime, timedelta
 import sys
 
 sexo = input("Informe o sexo (masculino/feminino): ")
@@ -13,13 +12,13 @@ if sexo.lower() != "masculino" and sexo.lower() != "feminino":
     print("Sexo inválido.")
     sys.exit()
 elif sexo.lower() == "masculino":
-    id_apose = dat_nasc + relativedelta(years=65)
-    temp_contr_min = 35
+    id_apose = dat_nasc + timedelta(days=65*365)
+    temp_contr_min = 35 * 365
 elif sexo.lower() == "feminino":
-    id_apose = dat_nasc + relativedelta(years=62)
-    temp_contr_min = 30
+    id_apose = dat_nasc + timedelta(days=62*365)
+    temp_contr_min = 30 * 365
 
-apose_contr = dat_ini_contr + relativedelta(years=temp_contr_min)
+apose_contr = dat_ini_contr + timedelta(days=temp_contr_min)
 
 dat_apose = max(id_apose, apose_contr)
 
