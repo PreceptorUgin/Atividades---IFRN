@@ -1,5 +1,4 @@
 import sys
-from turtle import distance
 
 mom_in_h, mom_in_m = int(input('Insira as horas e minutos da partida (separador :): ').split(':'))
 mom_fin_h, mom_fin_m = int(input('Insira as horas e minutos de chegada (separador :): ').split(':'))
