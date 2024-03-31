@@ -1,4 +1,10 @@
+import sys
+
 min_ = int(input("Insira quantos minutos permaneceu no estacionamento: "))
+
+if min_ <= 0:
+    print('Valor invalido!')
+    sys.exit()
 
 hor = min_ // 60
 if min_ % 60 > 0:
