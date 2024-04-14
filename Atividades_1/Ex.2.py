@@ -10,7 +10,7 @@ import sys
 n = int(input('Digite o número de elementos da Sequência de Fibonacci: '))
 
 if n <= 0:
-    print("Por favor, insira um número positivo maior que zero.")
+    print('Por favor, insira um número positivo maior que zero.')
     sys.exit()
 
 n_count = n
@@ -28,4 +28,4 @@ while n_count > 2:
     fib2 = val_fib
     n_count -= 1
 
-print(f'O {n}º da sequência de Fibonaci é {val_fib}')
+print(f'O {n}º número da sequência de Fibonaci é {val_fib}.')
