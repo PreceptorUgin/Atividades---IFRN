@@ -20,5 +20,5 @@ if num < 0:
 
 for lin in range(num + 1):
     for col in range(lin + 1):
-        print(col, end=" ")
+        print(col, end=' ')
     print()
