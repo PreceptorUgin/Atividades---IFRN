@@ -12,7 +12,7 @@
 '''
 import sys
 
-num = int(input('Digite um número inteiro: '))
+num = int(input('Digite um número inteiro positivo: '))
 
 if num < 0:
     print('Insira um número positivo.')
