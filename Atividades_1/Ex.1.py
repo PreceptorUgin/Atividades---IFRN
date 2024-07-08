@@ -14,7 +14,7 @@ if num < 0 :
 count = num
 fat = 1
 
-while count > 0:
+while count > 1:
     fat = fat * count
     count -= 1
 
