@@ -7,3 +7,19 @@
     O programa deve escrever cada termo gerado e o valor final 
     de S.
 '''
+import sys
+
+num = int(input('infomre um número: '))
+
+if num <= 0:
+    print('Número invalido, insira um número maior que 0')
+    sys.exit()
+
+som = 0
+for div in range(1,num+1):
+    term = 1/div
+    som += 1/div
+
+    print(f'termo {div}= 1/{div} = {term}')
+
+print(f'A soma é {som}')
