@@ -1,21 +1,20 @@
 '''
-    Faça um programa que exiba a Sequência de Fibonacci. 
-    O programa deverá solicitar um número que será a quantidade
-    de elementos da Sequência de Fibonacci.
+    Fazer um programa que solicite um número e calcule o seu fatorial
 
-    ATENÇÃO: Considere que a Sequência de Fibonacci irá iniciar em 1 
+    ATENÇÃO: Lembre-se das restrições para se calcular o fatorial
+             de um número
 '''
 import sys
 
-num = int(input('Digite o número de elementos da Sequência de Fibonacci: '))
+num = int(input("Insira um número: "))
 
-if num <= 0:
-    print('Por favor, insira um número (positivo diferent que zero).')
+if num < 0 :
+    print('Número invalido, Insira um número maior que zero.')
     sys.exit()
 
-now = 1
-then = 0
+fat = num
 
-for i in range(num):
-    print (now, end=",")
-    then, now = now, now + then
+for i in range(num-1,1,-1):
+    fat *= i
+
+print(f'O fatorial do número {num} é {fat}')
