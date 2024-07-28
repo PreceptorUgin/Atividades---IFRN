@@ -1,8 +1,10 @@
 import sys
 mas_ini = str(input('Insira o valor de massa inicial(em gramas): '))
 
-if not mas_ini.isnumeric():
+if not mas_ini.replace('.','',1).isdigit():
     sys.exit('Insira um numero valido.')
+elif float(mas_ini) < 0.5:
+    sys.exit(f'Massa inicial:{mas_ini}, massa final:{mas_ini}, tempo decorrido:0:0:0')
 
 mas_ini = int(mas_ini)
 mas_fin = mas_ini
