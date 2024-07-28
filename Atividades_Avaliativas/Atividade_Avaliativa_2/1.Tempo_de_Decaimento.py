@@ -7,12 +7,13 @@ if not mas_ini.isnumeric():
 mas_ini = int(mas_ini)
 mas_fin = mas_ini
 temp_sec = 0
+temp_min = 0
+temp_hor = 0
+
 while mas_fin > 0.49:
     mas_fin = mas_fin/2
     temp_sec += 50
 
-temp_min = 0
-temp_hor = 0
 while temp_sec >= 60:
     temp_sec -= 60
     temp_min += 1
