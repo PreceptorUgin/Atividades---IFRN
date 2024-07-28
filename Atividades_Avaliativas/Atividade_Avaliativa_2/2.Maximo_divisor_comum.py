@@ -11,5 +11,5 @@ elif int(num_1) < 0 or int(num_2) < 0:
 elif num_1 == 0:
     mdc = num_2
 elif num_2 == 0:
-    mdc= num_1
+    mdc = num_1
 
