@@ -8,9 +8,11 @@ qual a soma dos valores digitados
 é a media aritimetica
 é exibira por fim, a lista ordenada de forma crescente.
 """
-    #declaração de variaveis.
+
+#declaração de variaveis.
 val_at = 1
 val_memo = list()
+
 #Input dinamico ate 0 ser digitado.
 while val_at != 0:
     val_at = int(input('Insira um numero: '))
@@ -21,6 +23,7 @@ while val_at != 0:
     else:
         val_memo.append(val_at)
 
+#reposicionar para ordem crescente.
 for i in range(len(val_memo)):
      for j in range(0, len(val_memo)-i-1):
           if val_memo[j] > val_memo[j+1]:
