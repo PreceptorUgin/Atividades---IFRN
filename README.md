@@ -1,3 +1,3 @@
 #Atividade 1
 
-Esses são os codigos da primeria atividade.
+Esses são os codigos do primerio periodo.
