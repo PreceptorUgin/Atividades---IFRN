@@ -21,4 +21,5 @@ while temp_sec >= 60:
         temp_min -= 60
         temp_hor += 1
 
-print(f'Massa inicial: {mas_ini}, massa final: {mas_fin}, tempo decorrido: {temp_hor}:{temp_min}:{temp_sec}')
+print(50*'-')
+print(f'Massa inicial: {mas_ini},\nMassa final: {mas_fin},\nTempo decorrido: {temp_hor}:{temp_min}:{temp_sec}')
