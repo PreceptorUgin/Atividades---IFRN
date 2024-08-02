@@ -58,10 +58,5 @@ val = val % 0.05
 
 moeda_01 = round(val * 100)
 
-print (50*'-')
-print(f'e, {moeda_1} moedas de R$ 1,00')
-print(f'   {moeda_50} moedas de R$ 0,50')
-print(f'   {moeda_25} moedas de R$ 0,25')
-print(f'   {moeda_10} moedas de R$ 0,10')
-print(f'   {moeda_05} moedas de R$ 0,5')
-print(f'   {moeda_01} moedas de R$ 0,1')
+print(50*'-')
+print(f'e, {moeda_1} moedas de R$ 1,00\n   {moeda_50} moedas de R$ 0,50\n   {moeda_25} moedas de R$ 0,25\n   {moeda_10} moedas de R$ 0,10\n   {moeda_05} moedas de R$ 0,5\n   {moeda_01} moedas de R$ 0,1')
