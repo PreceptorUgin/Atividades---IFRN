@@ -1,7 +1,7 @@
 import sys
-mas_ini = str(input('Insira o valor de massa inicial(em gramas): '))
+mas_ini = int(input('Insira o valor de massa inicial(em gramas): '))
 
-if not mas_ini.replace('.','').isdigit():
+if not str(mas_ini).replace('.','').isdigit():
     sys.exit('Insira um numero valido.')
 
 mas_ini = float(mas_ini)

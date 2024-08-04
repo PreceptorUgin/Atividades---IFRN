@@ -1,0 +1,1 @@
+val = int(input('Informe um numéro positivo: '))
