@@ -2,7 +2,7 @@
 som = 0
 aux_1 = 0 
 aux_2 = 1
-
+print(50*'-')
 #Inicio do codigo.
 for i in range(1, 1000001):
     #Verificador.
@@ -18,3 +18,4 @@ for i in range(1, 1000001):
         #Teste/Saida.
         if i == som:
             print(som)
+            print(50*'-')
