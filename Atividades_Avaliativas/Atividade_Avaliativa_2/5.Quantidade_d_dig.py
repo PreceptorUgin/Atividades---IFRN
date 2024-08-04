@@ -8,7 +8,7 @@ cont = 0
 if val < 0:
     sys.exit('Insira um numero positivo.')
 
-#Contador
+#Contador de digitos>
 while val_aux > 0:
     cont += 1
     val_aux //= 10
