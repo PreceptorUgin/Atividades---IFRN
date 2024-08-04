@@ -16,6 +16,8 @@ for i in range(cont):
 
 #Verificador/Saida.
 if n == num:
+    print(50*'-')
     print(f'{num}, É um número de Armstrong.')
 else:
+    print(50*'-')
     print(f'{num}, Não e um número de Armstrong.')
