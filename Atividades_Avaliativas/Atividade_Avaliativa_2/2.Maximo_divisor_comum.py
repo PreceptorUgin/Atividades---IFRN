@@ -9,7 +9,7 @@ nu_2 = num_2
 mdc = 0
 num_aux = 0
 
-#Checagem dos inputs.
+#Checagem dos input's.
 if not str(num_1).isnumeric() or not str(num_2).isnumeric():
     sys.exit('Insira numeros validos.')
 elif num_1 < 0 or num_2 < 0:
