@@ -15,6 +15,6 @@ for i in range(1, 1000001):
             aux_1 = aux_2 % 10
             som += aux_1**5
             aux_2 = aux_2//10
-        #Teste.
+        #Teste/Saida.
         if i == som:
             print(som)
