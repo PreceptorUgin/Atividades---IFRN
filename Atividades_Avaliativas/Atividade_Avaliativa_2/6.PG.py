@@ -32,5 +32,4 @@ elif r_pg > 1 and val_ini < 0:
 else:
     clas = 'Oscilante.'
 
-print(f'A PG é {clas}')
-print(f'O {no_pg}ºN dessa PG é, {fin_no_pg}')
+print(f'A PG é {clas}\nA soma dos seus elementos é, {som}\nO {no_pg}ºN dessa PG é, {fin_no_pg}')
