@@ -29,4 +29,4 @@ while True:
     num_2 = num_aux
 
 print(50*'-')
-print(f'Máximo Divisor Comum(MDC) entre, {nu_1} é {nu_2}\nséra {mdc}')
+print(f'Máximo Divisor Comum(MDC) entre, {nu_1} é {nu_2}, séra {mdc}')
