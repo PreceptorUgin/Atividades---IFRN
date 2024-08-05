@@ -20,7 +20,7 @@ else:
      print(50*'-')
      print(val_ini)
 
-#Calculador
+#Calculador.
 for i in range(int(elem_pa)):
         aux += r_pa
         som += aux
