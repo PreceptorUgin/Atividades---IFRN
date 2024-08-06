@@ -1,6 +1,6 @@
 num = int(input('Digite a quantidade de fatores primos: '))
-qnt = int(input('Digite o número de números consecutivos: '))
 
+qnt = num
 cont = 0
 aux = 2
 temp = aux
@@ -13,13 +13,13 @@ while cont < qnt:
     while (temp % 2) == 0:
         f_prim += 1
         temp //= 2
-    fator = 3
+    fat = 3
 
-    while (fator * fator) <= temp:
+    while (fat * fat) <= temp:
         while (temp % fator) == 0:
             f_prim += 1
             temp //= fator
-        fator += 2
+        fat += 2
 
     if temp > 1:  
         f_prim += 1
