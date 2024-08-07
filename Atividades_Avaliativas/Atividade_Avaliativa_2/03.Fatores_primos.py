@@ -9,7 +9,7 @@ f_prim = 0
 while cont < qnt:
     temp = aux
     f_prim = 0
-
+    
     while (temp % 2) == 0:
         f_prim += 1
         temp //= 2
