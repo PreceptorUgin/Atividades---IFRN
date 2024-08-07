@@ -16,9 +16,9 @@ while cont < qnt:
     fat = 3
 
     while (fat * fat) <= temp:
-        while (temp % fator) == 0:
+        while (temp % fat) == 0:
             f_prim += 1
-            temp //= fator
+            temp //= fat
         fat += 2
 
     if temp > 1:  
