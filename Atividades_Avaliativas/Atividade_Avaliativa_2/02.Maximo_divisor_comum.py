@@ -7,7 +7,7 @@ num_2 = int(input('Insira o segundo número: '))
 nu_1 = num_1
 nu_2 = num_2
 mdc = 0
-num_aux = 0
+numAux = 0
 
 #Checagem dos input's.
 if not str(num_1).isnumeric() or not str(num_2).isnumeric():
@@ -24,9 +24,9 @@ while True:
         mdc = num_1
         break
 
-    num_aux = num_1 % num_2
+    numAux = num_1 % num_2
     num_1 = num_2
-    num_2 = num_aux
+    num_2 = numAux
 
 print(50*'-')
 print(f'Máximo Divisor Comum(MDC) entre, {nu_1} é {nu_2}, séra {mdc}')
