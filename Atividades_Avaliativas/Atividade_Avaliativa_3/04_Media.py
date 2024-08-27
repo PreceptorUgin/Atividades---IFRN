@@ -17,7 +17,7 @@ else:
     index = lstSize/2
     medi = lstVal[round(index)-1]
 
-somaQuadr = sum((x - media) ** 2 for x in lstVal)
+somaQuadr = sum((i - media) ** 2 for i in lstVal)
 varPop = somaQuadr / lstSize
 
 desvio = varPop**2
