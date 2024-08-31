@@ -21,4 +21,4 @@ for i in range(len(dictMoedas['value'])):
 print('\n')
 
 for j in range(len(dictCotacoes['value'])):
-    print(dictCotacoes['value'][i])
+    print(dictCotacoes['value'][j])
