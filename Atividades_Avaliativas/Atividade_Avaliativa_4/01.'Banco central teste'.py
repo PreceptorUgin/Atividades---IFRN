@@ -14,7 +14,7 @@ strURL += '@dataFinalCotacao=%2712-31-2023%27&$top=100&$format=json'
 dictCotacoes = requests.get(strURL).json()
 
 '''
-Teste de saida, obs.:"Queria entender o arquivos com qual eu ia trabalhar."
+"Teste de saida, obs.:Queria entender o arquivos com qual eu ia trabalhar."
 
 print(f'\n{dictMoedas}\n')
 print(f'{dictCotacoes}\n')
