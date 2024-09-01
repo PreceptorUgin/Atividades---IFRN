@@ -13,16 +13,19 @@ strURL += '@dataFinalCotacao=%2712-31-2023%27&$top=100&$format=json'
  
 dictCotacoes = requests.get(strURL).json()
 
-'''
-"Teste de saida; obs.:Queria entender os arquivos com os quais eu ia trabalhar."
 
-print(f'\n{dictMoedas}\n')
-print(f'{dictCotacoes}\n')
-for i in range(len(dictMoedas['value'])):
-    print(dictMoedas['value'][i])
-
-print('\n')
 
 for j in range(len(dictCotacoes['value'])):
     print(dictCotacoes['value'][j])
+
+'''
+"Teste de saida; obs.:Queria entender os arquivos com os quais eu ia trabalhar."
+print(f'\n{dictMoedas}\n')
+print(f'{dictCotacoes}\n')
+
+for i in range(len(dictMoedas['value'])):
+    print(dictMoedas['value'][i])
+print('\n')
+
+
 '''
