@@ -14,17 +14,18 @@ strURL += '@dataFinalCotacao=%2712-31-2023%27&$top=100&$format=json'
  
 dictCotacoes = requests.get(strURL).json()
 
-print ('\n')
-anoEntr = int(input('Insira o ano desejado para analise: '))
 anoHoje = (date.today()).year
-if anoEntr > anoHoje:
-    sys.exit('erro na entrada.')
-
-moedEntr = str(input('Insira a moeda desejada: '))
-count = 0
-for i in range(len(dictMoedas['value'])):
-    if moedEntr == (dictMoedas['value'][i]['simbolo']):
-       count += 1
-
-if count == 0:
-    sys.exit('Moeda não encontrada no banco de dados.')
+codeMoeda = [c ['simbolo'] for c in dictMoedas['value']] 
+nameMoeda = [n ['nomeFormatado']for n in dictMoedas['value']]
+while True:
+    try:
+        anoEntr = int(input('Insira o ano desejado para analise: '))
+        moedEntr = str(input('Insira a moeda desejada: '))
+        if anoEntr > anoHoje:
+            sys.exit('erro na entrada.')
+        if moedEntr not in codeMoeda:
+            break
+    except:
+        sys.exit(f'{sys.exc_info()[0]}')
+    else:
+        print(dictCotacoes)
