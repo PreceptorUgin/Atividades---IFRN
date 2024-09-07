@@ -5,14 +5,6 @@ strURL  = 'https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata'
 strURL += '/Moedas?$top=100&$format=json' 
  
 dictMoedas = requests.get(strURL).json() 
- 
-strURL  = 'https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/' 
-strURL += 'CotacaoMoedaPeriodo(moeda=@moeda,dataInicial=' 
-strURL += '@dataInicial,dataFinalCotacao=@dataFinalCotacao)?' 
-strURL += '@moeda=%27USD%27&@dataInicial=%2701-01-2023%27&' 
-strURL += '@dataFinalCotacao=%2712-31-2023%27&$top=100&$format=json' 
- 
-dictCotacoes = requests.get(strURL).json()
 
 anoHoje = (date.today()).year
 codeMoeda = [c ['simbolo'] for c in dictMoedas['value']] 
@@ -26,6 +18,13 @@ while True:
     else:
         if anoEntr > anoHoje:
             sys.exit('erro na entrada: Ano invalido.')
-        if moedEntr not in codeMoeda:
+        if moedEntr.upper() not in codeMoeda:
             sys.exit('erro na entrada: Moeda invalida.')
-        print(dictCotacoes)
+        
+        strURL  = 'https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/' 
+        strURL += 'CotacaoMoedaPeriodo(moeda=@moeda,dataInicial=' 
+        strURL += '@dataInicial,dataFinalCotacao=@dataFinalCotacao)?' 
+        strURL += '@moeda=%27USD%27&@dataInicial=%2701-01-2023%27&' 
+        strURL += '@dataFinalCotacao=%2712-31-2023%27&$top=100&$format=json' 
+ 
+        dictCotacoes = requests.get(strURL).json()
