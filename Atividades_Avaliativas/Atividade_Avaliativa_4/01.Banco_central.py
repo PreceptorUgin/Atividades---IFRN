@@ -22,9 +22,9 @@ while True:
         anoEntr = int(input('Insira o ano desejado para analise: '))
         moedEntr = str(input('Insira a moeda desejada: '))
         if anoEntr > anoHoje:
-            sys.exit('erro na entrada.')
+            sys.exit('erro na entrada: Ano invalido.')
         if moedEntr not in codeMoeda:
-            break
+            sys.exit('erro na entrada: Moeda invalida.')
     except:
         sys.exit(f'{sys.exc_info()[0]}')
     else:
