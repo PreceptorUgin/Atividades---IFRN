@@ -21,11 +21,11 @@ while True:
     try:
         anoEntr = int(input('Insira o ano desejado para analise: '))
         moedEntr = str(input('Insira a moeda desejada: '))
+    except:
+        sys.exit(f'{sys.exc_info()[0]}')
+    else:
         if anoEntr > anoHoje:
             sys.exit('erro na entrada: Ano invalido.')
         if moedEntr not in codeMoeda:
             sys.exit('erro na entrada: Moeda invalida.')
-    except:
-        sys.exit(f'{sys.exc_info()[0]}')
-    else:
         print(dictCotacoes)
