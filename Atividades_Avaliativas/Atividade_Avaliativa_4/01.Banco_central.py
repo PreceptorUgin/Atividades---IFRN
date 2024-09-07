@@ -31,4 +31,4 @@ while True:
  
         dictCotacoes = requests.get(strURL).json()
         dictCotacoesCompra = [t ['cotacaoCompra'] for t in dictCotacoes['value']]
-        print(dictCotacoesCompra)
+        print((sum(dictCotacoesCompra))/len(dictCotacoesCompra))
