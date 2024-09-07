@@ -8,11 +8,13 @@ dictMoedas = requests.get(strURL).json()
 
 anoHoje = (date.today()).year
 codeMoeda = [c ['simbolo'] for c in dictMoedas['value']] 
-nameMoeda = [n ['nomeFormatado']for n in dictMoedas['value']]
 while True:
+    print(f"\n{'-'*10} Moedas validas {'-'*10}")
+    for i in range(len(codeMoeda)):
+        print(f'|{codeMoeda[i]}')
     try:
+        moedEntr = str(input('Insira o codigo da moeda desejada: ')).upper()
         anoEntr = int(input('Insira o ano desejado para analise: '))
-        moedEntr = str(input('Insira a moeda desejada: ')).upper()
     except:
         sys.exit(f'{sys.exc_info()[0]}')
     else:
