@@ -31,4 +31,29 @@ while True:
  
         dictCotacoes = requests.get(strURL).json()
         dictCotacoesCompra = [t ['cotacaoCompra'] for t in dictCotacoes['value']]
-        print((sum(dictCotacoesCompra))/len(dictCotacoesCompra))
+        dictCotacoesVenda = [t ['cotacaoVenda'] for t in dictCotacoes['value']]
+        try:
+            mediaCompra = sum(dictCotacoesCompra)/len(dictCotacoesCompra)
+            mediaVenda = sum(dictCotacoesVenda)/len(dictCotacoesVenda)
+        except:
+            sys.exit(f'{sys.exc_info()[0]}')
+        else:
+            aux = []
+            for i in range(len(dictCotacoes['value'])):
+                if (dictCotacoes['value'][i]['tipoBoletim']) == 'Fechamento':
+                    if (dictCotacoes['value'][i]['dataHoraCotacao'][5:7]) == '01':
+                        
+            
+            dictMeses = {'Janeiro': ,
+                         'Fevereiro': ,
+                         'Março': ,
+                         'Abril': ,
+                         'Maio': ,
+                         'Junho': ,
+                         'Julho': ,
+                         'Agosto': ,
+                         'Setembro': ,
+                         'Outubro': ,
+                         'Novembro': ,
+                         'Dezembro': }
+            print(mediaVenda, mediaCompra)
