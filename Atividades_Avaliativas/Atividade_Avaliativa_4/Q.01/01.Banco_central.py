@@ -9,7 +9,7 @@ strURL += '/Moedas?$top=100&$format=json'
 try: 
     dictMoedas = requests.get(strURL).json()
 except Exception as ex:
-    sys.exit(f'Erro ao buscar moedas: {ex}')
+    sys.exit(f'Erro ao buscar moedas: {type(ex).__name__}')
 
 anoHoje = (date.today()).year
 codeMoeda = [c['simbolo'] for c in dictMoedas['value']]
@@ -21,7 +21,7 @@ while True:
         moedEntr = str(input('Insira o codigo da moeda desejada: ')).upper()
         anoEntr = int(input('Insira o ano desejado para analise: '))
     except ValueError as ex:
-        sys.exit(f'Erro na entrada de dados: {ex}')
+        sys.exit(f'Erro na entrada de dados: {type(ex).__name__}')
     
     if anoEntr > anoHoje:
         sys.exit('Erro na entrada: Ano invalido.')
@@ -37,7 +37,7 @@ while True:
     try:
         dictCotacoes = requests.get(strURL).json()
     except Exception as ex:
-        sys.exit(f'Erro ao buscar cotacoes: {ex}')
+        sys.exit(f'Erro ao buscar cotacoes: {type(ex).__name__}')
     
     dictCotacoesCompra = [t['cotacaoCompra'] for t in dictCotacoes['value']]
     dictCotacoesVenda = [t['cotacaoVenda'] for t in dictCotacoes['value']]
