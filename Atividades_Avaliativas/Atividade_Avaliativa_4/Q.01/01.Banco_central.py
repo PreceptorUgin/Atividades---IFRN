@@ -1,4 +1,4 @@
-import requests, sys, json, os
+import requests, sys, json, csv, os
 from datetime import date
 
 dirArqu = os.path.abspath(__file__)
@@ -61,8 +61,20 @@ while True:
             mediaVenda /= divi
         dictMeses[meses[mes-1]] = {'mediaCompra': round(mediaCompra, 5), 
                                    'mediaVenda': round(mediaVenda, 5)}
+    
     auxArq = json.dumps(dictMeses, indent=2 , ensure_ascii=False)
-    arqSaida = open(dirArqu + f'\\medias_cotacoes_{moedEntr}_{anoEntr}.json','w', encoding='utf-8')
+    arqSaida = open(dirArqu + f'\\medias_cotacoes_{moedEntr}_{anoEntr}.json',
+                    'w', encoding='utf-8')
     arqSaida.write(auxArq)
     arqSaida.close()
+
+    arqSaida = open(dirArqu + f'\\medias_cotacoes_{moedEntr}_{anoEntr}.csv',
+                    'w', newline='', encoding='utf-8')
+    auxArq = csv.writer(arqSaida)
+    auxArq.writerow(['Mês', 'Média de Compra', 'Média de Venda'])
+    for mes, cotacoes in dictMeses.items():
+        auxArq.writerow([mes, cotacoes['mediaCompra'], cotacoes['mediaVenda']])
+
+    arqSaida.close()
+
     print('\nArquivos salvos com sucesso!\n')
