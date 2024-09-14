@@ -32,7 +32,7 @@ while True:
     strURL +=  'CotacaoMoedaPeriodo(moeda=@moeda,dataInicial='
     strURL +=  '@dataInicial,dataFinalCotacao=@dataFinalCotacao)?'
     strURL += f'@moeda=%27{moedEntr}%27&@dataInicial=%2701-01-{anoEntr}%27&'
-    strURL += f'@dataFinalCotacao=%2712-31-{anoEntr}%27&$top=100&$format=json'
+    strURL += f'@dataFinalCotacao=%2712-31-{anoEntr}%27&$format=json'
     
     try:
         dictCotacoes = requests.get(strURL).json()
@@ -74,7 +74,6 @@ while True:
     auxArq.writerow(['Mês', 'Média de Compra', 'Média de Venda'])
     for mes, cotacoes in dictMeses.items():
         auxArq.writerow([mes, cotacoes['mediaCompra'], cotacoes['mediaVenda']])
-
     arqSaida.close()
 
     print('\nArquivos salvos com sucesso!\n')
