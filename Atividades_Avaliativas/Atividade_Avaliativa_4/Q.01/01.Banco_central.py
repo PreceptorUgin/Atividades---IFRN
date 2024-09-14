@@ -22,30 +22,30 @@ while True:
         anoEntr = int(input('Insira o ano desejado para analise: '))
     except ValueError as ex:
         sys.exit(f'Erro na entrada de dados: {type(ex).__name__}')
-    
+
     if anoEntr > anoHoje:
         sys.exit('Erro na entrada: Ano invalido.')
     if moedEntr not in codeMoeda:
         sys.exit('Erro na entrada: Moeda invalida.')
-    
+
     strURL  =  'https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/'
     strURL +=  'CotacaoMoedaPeriodo(moeda=@moeda,dataInicial='
     strURL +=  '@dataInicial,dataFinalCotacao=@dataFinalCotacao)?'
     strURL += f'@moeda=%27{moedEntr}%27&@dataInicial=%2701-01-{anoEntr}%27&'
     strURL += f'@dataFinalCotacao=%2712-31-{anoEntr}%27&$format=json'
-    
+
     try:
         dictCotacoes = requests.get(strURL).json()
     except Exception as ex:
         sys.exit(f'Erro ao buscar cotacoes: {type(ex).__name__}')
-    
+
     dictCotacoesCompra = [t['cotacaoCompra'] for t in dictCotacoes['value']]
     dictCotacoesVenda = [t['cotacaoVenda'] for t in dictCotacoes['value']]
-    
+
     dictMeses = {}
     meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
              'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
-    
+
     for mes in range(1, 13):
         mediaCompra = 0
         mediaVenda = 0
@@ -61,7 +61,7 @@ while True:
             mediaVenda /= divi
         dictMeses[meses[mes-1]] = {'mediaCompra': round(mediaCompra, 5), 
                                    'mediaVenda': round(mediaVenda, 5)}
-    
+
     auxArq = json.dumps(dictMeses, indent=2 , ensure_ascii=False)
     arqSaida = open(dirArqu + f'\\medias_cotacoes_{moedEntr}_{anoEntr}.json',
                     'w', encoding='utf-8')
