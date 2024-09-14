@@ -37,7 +37,7 @@ while True:
     try:
         dictCotacoes = requests.get(strURL).json()
     except Exception as ex:
-        sys.exit(f'Erro ao buscar cotações: {ex}')
+        sys.exit(f'Erro ao buscar cotacoes: {ex}')
     
     dictCotacoesCompra = [t['cotacaoCompra'] for t in dictCotacoes['value']]
     dictCotacoesVenda = [t['cotacaoVenda'] for t in dictCotacoes['value']]
@@ -61,7 +61,7 @@ while True:
             mediaVenda /= divi
         dictMeses[meses[mes-1]] = {'mediaCompra': round(mediaCompra, 5), 
                                    'mediaVenda': round(mediaVenda, 5)}
-    auxArq = json.dumps(dictMeses, indent=2 ,ensure_ascii=False)
+    auxArq = json.dumps(dictMeses, indent=2 , ensure_ascii=False)
     arqSaida = open(dirArqu + f'\\medias_cotacoes_{moedEntr}_{anoEntr}.json','w', encoding='utf-8')
     arqSaida.write(auxArq)
     arqSaida.close()
