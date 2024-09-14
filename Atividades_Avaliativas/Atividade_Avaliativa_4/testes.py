@@ -1,1 +1,0 @@
-teste = sum(lambda s: dictCotacoesCompra = [t ['cotacaoCompra'] for t in dictCotacoes['value']])

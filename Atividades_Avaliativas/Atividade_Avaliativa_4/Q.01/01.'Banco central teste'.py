@@ -28,3 +28,10 @@ for i in range(len(dictMoedas['value'])):
     print(dictMoedas['value'][i])
 print('\n')
 '''
+import requests
+strURL = 'https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/'
+strURL += 'CotacaoMoedaPeriodo(moeda=@moeda,dataInicial='
+strURL += '@dataInicial,dataFinalCotacao=@dataFinalCotacao)?'
+strURL += f'@moeda=%27AUD%27&@dataInicial=%2701-01-2022%27&'
+strURL += f'@dataFinalCotacao=%2712-31-2022%27&$format=json'
+dictCotacoes = requests.get(strURL).json()

@@ -61,8 +61,8 @@ while True:
             mediaVenda /= divi
         dictMeses[meses[mes-1]] = {'mediaCompra': round(mediaCompra, 5), 
                                    'mediaVenda': round(mediaVenda, 5)}
-    
+    auxArq = json.dumps(dictMeses, indent=2 ,ensure_ascii=False)
     arqSaida = open(dirArqu + f'\\medias_cotacoes_{moedEntr}_{anoEntr}.json','w', encoding='utf-8')
-    json.dump(dictMeses, f'\\medias_cotacoes_{moedEntr}_{anoEntr}.json', ensure_ascii=False)
+    arqSaida.write(auxArq)
     arqSaida.close()
-    print(dictMeses)
+    print('\nArquivos salvos com sucesso!\n')
