@@ -1,5 +1,8 @@
-import requests, sys
+import requests, sys, json, os
 from datetime import date
+
+dirArqu = os.path.abspath(__file__)
+dirArqu = os.path.dirname(dirArqu)
 
 strURL = 'https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata' 
 strURL += '/Moedas?$top=100&$format=json' 
@@ -58,5 +61,8 @@ while True:
             mediaVenda /= divi
         dictMeses[meses[mes-1]] = {'mediaCompra': round(mediaCompra, 5), 
                                    'mediaVenda': round(mediaVenda, 5)}
-
+    
+    arqSaida = open(dirArqu + f'\\medias_cotacoes_{moedEntr}_{anoEntr}.json','w', encoding='utf-8')
+    json.dump(dictMeses, f'\\medias_cotacoes_{moedEntr}_{anoEntr}.json', ensure_ascii=False)
+    arqSaida.close()
     print(dictMeses)
