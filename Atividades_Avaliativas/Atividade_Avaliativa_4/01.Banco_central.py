@@ -1,5 +1,6 @@
 import requests, sys
 from datetime import date
+
 strURL = 'https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata' 
 strURL += '/Moedas?$top=100&$format=json' 
 try: 
