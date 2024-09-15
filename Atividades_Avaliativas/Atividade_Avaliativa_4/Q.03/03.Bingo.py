@@ -1,4 +1,4 @@
-from bingoFunc import *
+from bingoFunc import gerarCartelas, salvarCartelas, lerCartelas, imprimirCartelas
 
 def menu():
     cartelas = {}

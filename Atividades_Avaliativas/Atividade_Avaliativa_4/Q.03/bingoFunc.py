@@ -1,9 +1,12 @@
 import random
 import os
 
+dirArqu = os.path.abspath(__file__)
+dirArqu = os.path.dirname(dirArqu)
+
 def gerarCartelas(num):
     if not isinstance(num, int) or num <= 0 or num > 10000:
-        return (False, 'Numero invalido.')
+        return (False, 'Número inválido.')
 
     cartelas = {}
     ids = set()
@@ -36,24 +39,28 @@ def salvarCartelas(cartelas, arquivo='cartelas.txt'):
     if not cartelas:
         return (False, 'Nenhuma cartela.')
 
+    APath = os.path.join(dirArqu, arquivo)
+
     try:
-        with open(arquivo, 'w') as f:
+        with open(APath, 'w', encoding='utf-8') as f:
             for id_c, c in cartelas.items():
                 linha = f'{id_c};'
                 for l, nums in c.items():
-                    linha += f'{l}={' '.join(map(str, nums))};'
+                    linha += f"{l}={' '.join(map(str, nums))};"
                 f.write(linha[:-1] + '\n')
         return (True, 'Arquivo salvo.')
     except Exception as e:
         return (False, f'Erro: {str(e)}')
 
 def lerCartelas(arquivo='cartelas.txt'):
-    if not os.path.isfile(arquivo):
+    APath = os.path.join(dirArqu, arquivo)
+
+    if not os.path.isfile(APath):
         return (False, 'Arquivo não encontrado.')
 
     cartelas = {}
     try:
-        with open(arquivo, 'r') as f:
+        with open(APath, 'r', encoding='utf-8') as f:
             for linha in f:
                 partes = linha.strip().split(';')
                 id_c = partes[0]
@@ -71,17 +78,17 @@ def imprimirCartelas(id_c, cartelas):
     if not cartelas:
         return (False, 'Nenhuma cartela.')
     if not isinstance(id_c, str) or id_c not in cartelas:
-        return (False, 'Numero invalido.')
+        return (False, 'ID de cartela inválido.')
 
     cartela = cartelas[id_c]
     cabecalho = '| B | I | N | G | O |'
     corpo = [
-        f'| {' '.join(f'{num:2}' for num in cartela['B'])} |',
-        f'| {' '.join(f'{num:2}' for num in cartela['I'])} |',
-        f'| {' '.join(f'{num:2}' for num in cartela['N'])} |',
-        f'| {' '.join(f'{num:2}' for num in cartela['G'])} |',
-        f'| {' '.join(f'{num:2}' for num in cartela['O'])} |'
+        f"| {' '.join(f'{num:2}' for num in cartela['B'])} |",
+        f"| {' '.join(f'{num:2}' for num in cartela['I'])} |",
+        f"| {' '.join(f'{num:2}' for num in cartela['N'])} |",
+        f"| {' '.join(f'{num:2}' for num in cartela['G'])} |",
+        f"| {' '.join(f'{num:2}' for num in cartela['O'])} |"
     ]
 
-    resultado = resultado = f'\n+-+-+-+-+-+-+-+-+-+\n | Cartela: {id_c} |\n+-+-+-+-+-+-+-+-+-+\n{cabecalho}\n+-+-+-+-+-+-+-+-+-+\n' + '\n'.join(corpo) + f'\n+-+-+-+-+-+-+-+-+-+\n'
+    resultado = f'\n+-+-+-+-+-+-+-+-+-+\n | Cartela: {id_c} |\n+-+-+-+-+-+-+-+-+-+\n{cabecalho}\n+-+-+-+-+-+-+-+-+-+\n' + '\n'.join(corpo) + f'\n+-+-+-+-+-+-+-+-+-+\n'
     return (True, resultado)
