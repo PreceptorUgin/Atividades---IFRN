@@ -74,9 +74,8 @@ def imprimirCartelas(id_c, cartelas):
         return (False, 'Numero invalido.')
 
     cartela = cartelas[id_c]
-    linha_divisoria = '+-+-+-+-+-+-+-+-+-+'
     cabecalho = '| B | I | N | G | O |'
-    conteudo = [
+    corpo = [
         f'| {' '.join(f'{num:2}' for num in cartela['B'])} |',
         f'| {' '.join(f'{num:2}' for num in cartela['I'])} |',
         f'| {' '.join(f'{num:2}' for num in cartela['N'])} |',
@@ -84,5 +83,5 @@ def imprimirCartelas(id_c, cartelas):
         f'| {' '.join(f'{num:2}' for num in cartela['O'])} |'
     ]
 
-    resultado = f'\n{linha_divisoria}\n | Cartela: {id_c} |\n{linha_divisoria}\n{cabecalho}\n{linha_divisoria}\n' + '\n'.join(conteudo) + f'\n{linha_divisoria}\n'
+    resultado = resultado = f'\n+-+-+-+-+-+-+-+-+-+\n | Cartela: {id_c} |\n+-+-+-+-+-+-+-+-+-+\n{cabecalho}\n+-+-+-+-+-+-+-+-+-+\n' + '\n'.join(corpo) + f'\n+-+-+-+-+-+-+-+-+-+\n'
     return (True, resultado)
