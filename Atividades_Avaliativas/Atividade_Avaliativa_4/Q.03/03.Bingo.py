@@ -2,29 +2,24 @@ from bingoFunc import *
 
 def menu():
     cartelas = {}
+
     while True:
-        print('\n1. Gerar Cartelas')
-        print('2. Salvar Cartelas')
-        print('3. Ler Cartelas')
-        print('4. Imprimir Cartelas')
-        print('5. Sair')
+        print('\n1. Gerar Cartelas\n2. Salvar Cartelas\n3. Ler Cartelas\n4. Imprimir Cartelas\n5. Sair')
+        mChoice = input('Escolha: ').strip()
         
-        escolha = input('Escolha: ').strip()
-        
-        if escolha == '1':
-            n = int(input('Quantidade: '))
-            sucesso, resultado = gerarCartelas(n)
+        if mChoice == '1':
+            nCartelas = int(input('Quantidade: '))
+            sucesso, resultado = gerarCartelas(nCartelas)
             if sucesso:
                 cartelas = resultado
                 print(f'Geradas: {len(cartelas)}')
             else:
                 print(f'Erro: {resultado}')
 
-        elif escolha == '2':
+        elif mChoice == '2':
             sucesso, mensagem = salvarCartelas(cartelas)
             print(mensagem)
-
-        elif escolha == '3':
+        elif mChoice == '3':
             sucesso, resultado = lerCartelas()
             if sucesso:
                 cartelas = resultado
@@ -32,7 +27,7 @@ def menu():
             else:
                 print(f'Erro: {resultado}')
 
-        elif escolha == '4':
+        elif mChoice == '4':
             if not cartelas:
                 print('Nenhuma cartela.')
                 continue
@@ -43,10 +38,9 @@ def menu():
             else:
                 print(f'Erro: {resultado}')
 
-        elif escolha == '5':
+        elif mChoice == '5':
             print('Saindo...')
             break
-
         else:
             print('Opção inválida.')
 
