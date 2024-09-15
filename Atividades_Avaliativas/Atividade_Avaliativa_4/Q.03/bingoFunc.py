@@ -13,7 +13,7 @@ def gerarCartelas(num):
     
     def gerar_id():
         while True:
-            id_c = f'cart_{random.randint(1, 10001):06d}'
+            id_c = f'{random.randint(1, 10001):06d}'
             if id_c not in ids:
                 ids.add(id_c)
                 return id_c
