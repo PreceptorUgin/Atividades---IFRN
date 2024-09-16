@@ -27,6 +27,7 @@ try:
         arquivo = f'cartola_fc_{ano}.json'
         with open(arquivo, 'r', encoding='utf-8') as f:
             dados = json.load(f)
+            
 except requests.exceptions.RequestException as e:
     print("Erro na API:", e)
     exit()
