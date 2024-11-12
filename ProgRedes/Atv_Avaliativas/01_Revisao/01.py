@@ -14,7 +14,7 @@ def obterEndereco():
         sys.exit(f"Erro ao inserir o endereço IP: {e}")
 
 def obterMascaras(mask_count):
-    lstMask = []
+    lst_mask = []
     for n in range(1 ,mask_count):
         try:
             mask = int(input(f"Digite a {n}º máscara (CIDR entre 1 e 31): "))
@@ -24,14 +24,14 @@ def obterMascaras(mask_count):
             else:
                 print('Valor inválido. Insira uma máscara CIDR entre 1 e 31.')
         except ValueError:
-            lstMask.append(mask)
-    return lstMask
+            lst_mask.append(mask)
+    return lst_mask
 
 # Programa Principal
 try:
     ip_addr = obterEndereco()
     nMask = int(input("Insira o número de máscaras que serão usadas no cálculo: "))
-    lst_mask = obterMascaras(nMask+1)
+    lstMask = obterMascaras(nMask+1)
 
 except Exception as e:
     sys.exit(f"Ocorreu um erro: {e}")
