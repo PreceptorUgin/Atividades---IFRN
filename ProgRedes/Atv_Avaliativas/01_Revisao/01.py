@@ -6,7 +6,7 @@ def obterEndereco():
         lstOct = ipAddr.split('.')
 
         if len(lstOct) != 4 or not all(lstOct.isdigit() and 0 <= int(octeto) <= 255 for octeto in lstOct):
-            sys.exit('Endereço IP invalido.')
+            sys.exit("Endereço IP invalido.")
         
         return [int(octeto) for octeto in lstOct]
     
@@ -20,9 +20,9 @@ def obterMascaras(mask_count):
             mask = int(input(f"Digite a {n}º máscara (CIDR entre 1 e 31): "))
             if 0 >= mask >= 32:
                 n -= 1
-                print('Valor inserido invalido, insira valores entre 1 e 31')
+                print("Valor inserido invalido, insira valores entre 1 e 31")
             else:
-                print('Valor inválido. Insira uma máscara CIDR entre 1 e 31.')
+                print("Valor inválido. Insira uma máscara CIDR entre 1 e 31.")
         except ValueError:
             lst_mask.append(mask)
     return lst_mask
