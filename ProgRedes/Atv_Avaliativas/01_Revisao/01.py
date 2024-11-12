@@ -18,7 +18,7 @@ def obterMascaras(mask_count):
     for n in range(1 ,mask_count):
         try:
             mask = int(input(f"Digite a {n}º máscara (CIDR entre 1 e 31): "))
-            if 0 >= Masks >= 32:
+            if 0 >= mask >= 32:
                 n -= 1
                 print('Valor inserido invalido, insira valores entre 1 e 31')
             else:
