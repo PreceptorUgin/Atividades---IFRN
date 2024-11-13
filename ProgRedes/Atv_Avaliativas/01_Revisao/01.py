@@ -26,7 +26,7 @@ def obterMascaras(mask_count):
             print("Entrada inválida. Insira um número inteiro para a máscara.")
     return lst_mask
 
-def transform(ipAddr):
+def transforme(ipAddr):
     binMini = ''.join(f'{octeto:08b}' for octeto in ipAddr)
     decimal = int(binMini, 2)
     return decimal
@@ -40,5 +40,5 @@ try:
 except Exception as e:
     sys.exit(f"Ocorreu um erro: {e}")
 
-ip_decimal = transform(ip_addr)
+ip_decimal = transforme(ip_addr)
 
