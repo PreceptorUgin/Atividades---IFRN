@@ -5,8 +5,8 @@ def obterEndereco():
         ipAddr = str(input("Insira o endereço de rede: "))
         lstOct = ipAddr.split('.')
 
-        if len(lstOct) != 4 or not all(lstOct.isdigit() and 0 <= int(octeto) <= 255 for octeto in lstOct):
-            sys.exit("Endereço IP invalido.")
+        if len(lstOct) != 4 or not all(octeto.isdigit() and 0 <= int(octeto) <= 255 for octeto in lstOct):
+            sys.exit("Endereço IP inválido.")
         
         return [int(octeto) for octeto in lstOct]
     
@@ -15,17 +15,21 @@ def obterEndereco():
 
 def obterMascaras(mask_count):
     lst_mask = []
-    for n in range(1 ,mask_count):
+    for n in range(1, mask_count):
         try:
-            mask = int(input(f"Digite a {n}º máscara (CIDR entre 1 e 31): "))
-            if 0 >= mask >= 32:
-                n -= 1
-                print("Valor inserido invalido, insira valores entre 1 e 31")
-            else:
+            mask = int(input(f"Digite a {n}ª máscara (CIDR entre 1 e 31): "))
+            if mask < 1 or mask > 31:
                 print("Valor inválido. Insira uma máscara CIDR entre 1 e 31.")
+            else:
+                lst_mask.append(mask)
         except ValueError:
-            lst_mask.append(mask)
+            print("Entrada inválida. Insira um número inteiro para a máscara.")
     return lst_mask
+
+def transform(ipAddr):
+    binMini = ''.join(f'{octeto:08b}' for octeto in ipAddr)
+    decimal = int(binMini, 2)
+    return decimal
 
 # Programa Principal
 try:
@@ -35,3 +39,6 @@ try:
 
 except Exception as e:
     sys.exit(f"Ocorreu um erro: {e}")
+
+ip_decimal = transform(ip_addr)
+
